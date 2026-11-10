@@ -1,0 +1,39 @@
+{
+  "schema": "academy.reference-project.v1",
+  "fixture_notice": "Curated fictional reference fixture from Amelia4 brand documentation. It contains no private production data.",
+  "project": {"slug": "atlas", "display_name": "Atlas Support"},
+  "sources": [
+    {
+      "display_name": "Fictional return policy excerpt",
+      "purpose": "Exercise evidence-oriented customer-support behavior",
+      "license_basis": "Fictional content authored in Amelia4 documentation",
+      "extracted_text": "The standard deadline ended on 18 October. Exceptions require review and approval by the responsible team."
+    }
+  ],
+  "themes": [
+    {
+      "title": "Returns outside the deadline",
+      "summary": "Explain the applicable rule, identify exceptions, and escalate decisions that require authorization.",
+      "evidence_refs": ["docs/brand/product-surfaces.md#atlas-support"]
+    }
+  ],
+  "behaviors": [
+    {
+      "key": "explain_late_return",
+      "title": "Explain a late return",
+      "intent": "State the rule, cite exceptions, and escalate the decision without promising a refund.",
+      "tone": "direct, courteous, and accountable"
+    }
+  ],
+  "samples": [
+    {
+      "behavior_key": "explain_late_return",
+      "language": "en-US",
+      "scenario_id": "late-return",
+      "messages": [
+        {"role": "user", "content": [{"type": "text", "text": "Can I return this after the deadline?"}]},
+        {"role": "assistant", "content": [{"type": "text", "text": "The standard window ended on 18 Oct. I can open an exception review; approval depends on the responsible team."}]}
+      ]
+    }
+  ]
+}

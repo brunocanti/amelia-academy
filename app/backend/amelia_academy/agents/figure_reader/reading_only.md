@@ -1,0 +1,1 @@
+Look at this figure from a document. reading: two or three sentences describing what the picture shows — the kind of figure, what is compared or plotted, and the pattern a viewer can see. Do not transcribe its text. Do not invent measurements, labels, or results that are not visible. If the image is decorative or unreadable, say that in one sentence.

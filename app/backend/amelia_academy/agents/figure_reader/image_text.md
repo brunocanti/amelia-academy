@@ -1,0 +1,1 @@
+Transcreva exatamente o texto visível nesta imagem, na língua original e preservando as quebras de linha. Não descreva a imagem, não traduza, não complete texto cortado e não faça comentários. Se não houver texto legível, responda exatamente: NO_TEXT

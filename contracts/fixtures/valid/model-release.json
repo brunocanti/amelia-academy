@@ -1,0 +1,18 @@
+{
+  "schema_version": "1.0",
+  "release_id": "019a0000-0000-7000-8000-000000000040",
+  "project_id": "019a0000-0000-7000-8000-000000000003",
+  "model_spec": {
+    "schema_version": "1.0",
+    "spec_id": "019a0000-0000-7000-8000-000000000030",
+    "project_id": "019a0000-0000-7000-8000-000000000003",
+    "base_model": {"id": "example/model", "revision": "abc123", "sha256": "cccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc", "license": "Apache-2.0"},
+    "runtime": {"kind": "mlx", "version": "1.0.0", "quantization": null},
+    "tokenizer": {"sha256": "dddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddd", "chat_template_sha256": "eeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee", "bos_token_id": 1, "eos_token_id": 2, "pad_token_id": null, "thinking_enabled": false, "loss_mask": "assistant_final_only"}
+  },
+  "adapters": [{"role": "dialogue-policy", "artifact_sha256": "ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff"}],
+  "charter": {"version_id": "019a0000-0000-7000-8000-000000000041", "sha256": "1111111111111111111111111111111111111111111111111111111111111111"},
+  "policies": {"bundle_sha256": "2222222222222222222222222222222222222222222222222222222222222222"},
+  "retrieval": {"embedding_model": "example/embedding", "min_score": 0.72},
+  "evaluations": [{"suite_version_id": "019a0000-0000-7000-8000-000000000042", "run_id": "019a0000-0000-7000-8000-000000000043", "result": "pass"}]
+}

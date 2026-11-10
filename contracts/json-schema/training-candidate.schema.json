@@ -1,0 +1,36 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://schemas.amelia.academy/v1/training-candidate.schema.json",
+  "title": "TrainingCandidate",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["schema_version", "candidate_id", "project_id", "state", "purpose", "selected_event_ids", "redacted_content", "redaction_sha256", "consent"],
+  "properties": {
+    "schema_version": {"const": "1.0"},
+    "candidate_id": {"$ref": "#/$defs/id"},
+    "project_id": {"$ref": "#/$defs/id"},
+    "state": {"enum": ["selected", "redacting", "awaiting_consent", "awaiting_review", "approved", "imported", "revoked", "rejected"]},
+    "purpose": {"type": "string", "minLength": 1},
+    "selected_event_ids": {"type": "array", "minItems": 1, "uniqueItems": true, "items": {"$ref": "#/$defs/id"}},
+    "redacted_content": {"type": "string", "minLength": 1},
+    "redaction_sha256": {"$ref": "#/$defs/sha256"},
+    "consent": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["consent_id", "granted_at", "purpose", "scope"],
+      "properties": {
+        "consent_id": {"$ref": "#/$defs/id"},
+        "granted_at": {"type": "string", "format": "date-time"},
+        "revoked_at": {"type": ["string", "null"], "format": "date-time"},
+        "purpose": {"type": "string", "minLength": 1},
+        "scope": {"type": "string", "minLength": 1}
+      }
+    },
+    "reviewed_by": {"$ref": "#/$defs/id"},
+    "reviewed_at": {"type": "string", "format": "date-time"}
+  },
+  "$defs": {
+    "id": {"type": "string", "pattern": "^(?:[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[89abAB][0-9a-fA-F]{3}-[0-9a-fA-F]{12}|[0-9A-HJKMNP-TV-Z]{26})$"},
+    "sha256": {"type": "string", "pattern": "^[0-9a-f]{64}$"}
+  }
+}

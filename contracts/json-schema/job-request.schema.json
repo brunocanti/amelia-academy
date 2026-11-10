@@ -1,0 +1,32 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://schemas.amelia.academy/v1/job-request.schema.json",
+  "title": "JobRequest",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["schema_version", "request_id", "job_id", "project_id", "attempt", "task", "input_manifest", "output_dir", "config"],
+  "properties": {
+    "schema_version": {"const": "1.0"},
+    "request_id": {"$ref": "#/$defs/id"},
+    "job_id": {"$ref": "#/$defs/id"},
+    "project_id": {"$ref": "#/$defs/id"},
+    "attempt": {"type": "integer", "minimum": 1},
+    "task": {"enum": ["render_dataset", "mock_train", "train_mlx_lora", "evaluate", "convert_artifact"]},
+    "input_manifest": {"type": "string", "pattern": "^/grants/in/(?:[^/]+/)*[^/]+$"},
+    "output_dir": {"const": "/grants/out"},
+    "config": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "seed": {"type": "integer", "minimum": 0},
+        "epochs": {"type": "integer", "minimum": 1},
+        "learning_rate": {"type": "number", "exclusiveMinimum": 0},
+        "model_spec_sha256": {"$ref": "#/$defs/sha256"}
+      }
+    }
+  },
+  "$defs": {
+    "id": {"type": "string", "pattern": "^(?:[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[89abAB][0-9a-fA-F]{3}-[0-9a-fA-F]{12}|[0-9A-HJKMNP-TV-Z]{26})$"},
+    "sha256": {"type": "string", "pattern": "^[0-9a-f]{64}$"}
+  }
+}

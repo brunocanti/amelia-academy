@@ -1,0 +1,8 @@
+{
+  "schema_version": "1.0",
+  "spec_id": "019a0000-0000-7000-8000-000000000030",
+  "project_id": "019a0000-0000-7000-8000-000000000003",
+  "base_model": {"id": "", "revision": "", "sha256": "bad", "license": ""},
+  "runtime": {"kind": "unknown", "version": ""},
+  "tokenizer": {"sha256": "bad", "chat_template_sha256": "bad", "bos_token_id": -1, "eos_token_id": -1, "loss_mask": "all_tokens"}
+}

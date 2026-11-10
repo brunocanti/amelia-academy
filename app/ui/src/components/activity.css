@@ -1,0 +1,13 @@
+.activity-bar { position: fixed; z-index: 40; left: 258px; right: 0; bottom: 0; height: 36px; display: flex; align-items: center; gap: 6px; padding: 3px 10px; padding-bottom: max(3px, env(safe-area-inset-bottom)); background: var(--surface); border-top: 1px solid var(--line); overflow: hidden; }
+.rail-collapsed .activity-bar { left: 76px; }
+.activity-chip, .activity-history-button, .activity-console-button { max-width: 230px; flex: none; overflow: hidden; padding: 5px 9px; border: 1px solid var(--line); border-radius: 99px; background: var(--raised); color: var(--ink); font: inherit; font-size: 10px; text-overflow: ellipsis; white-space: nowrap; cursor: pointer; }
+.activity-chip.is-running { border-color: var(--line-strong); }
+.activity-chip.is-error, .activity-chip.is-failed { color: var(--bad-fg, #c33); }
+.activity-model-state { min-width: 0; flex: 1; overflow: hidden; color: var(--muted); font-size: 10px; text-overflow: ellipsis; white-space: nowrap; }
+.activity-model-state.is-busy { color: var(--brand-mark); }
+.activity-history-button { margin-left: auto; }
+.activity-popover, .activity-history { position: fixed; z-index: 50; right: 12px; bottom: 44px; display: flex; flex-direction: column; align-items: flex-start; gap: 8px; max-width: min(360px, calc(100vw - 24px)); padding: 14px; background: var(--raised); border: 1px solid var(--line-strong); border-radius: 10px; box-shadow: var(--shadow); }
+.activity-popover p { margin: 0; color: var(--muted); font-size: 11px; }
+.activity-history button { border: 0; background: none; color: var(--ink); text-align: left; }
+@media (max-width: 760px) { .activity-bar { left: 0; } .activity-chip { max-width: 45vw; } }
+@media (max-width: 600px) { .activity-chip:not(:last-of-type) { display: none; } .activity-model-state { display: none; } .activity-popover, .activity-history { inset: auto 0 36px; max-width: none; min-height: 35vh; border-radius: 14px 14px 0 0; } }

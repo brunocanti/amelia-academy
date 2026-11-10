@@ -1,0 +1,18 @@
+[
+  {
+    "slug": "amelia",
+    "display_name": "Amelia",
+    "charter": {
+      "intent": "A locally governed conversational project",
+      "language": "en-US"
+    }
+  },
+  {
+    "slug": "atlas",
+    "display_name": "Atlas",
+    "charter": {
+      "intent": "A generic organizational assistant project",
+      "language": "en-US"
+    }
+  }
+]

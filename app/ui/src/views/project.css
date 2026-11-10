@@ -1,0 +1,47 @@
+/* Project creation and the project switcher. Tokens come from app.css. */
+.pn { flex: 1; min-height: 0; display: flex; }
+.pn-first { min-height: 100%; height: 100%; padding: 24px; background: radial-gradient(circle at 50% 0%, var(--ok-bg) 0%, var(--canvas) 55%); }
+.pn-shell { width: 100%; gap: 20px; }
+.pn-hero h2 { margin: 6px 0 0; font-size: clamp(26px, 3vw, 34px); letter-spacing: -.03em; font-weight: 600; }
+.pn-intro { margin: 8px 0 0; color: var(--muted); font-size: 14px; line-height: 1.6; max-width: 62ch; }
+.pn-error { color: var(--bad-fg); border: 1px solid var(--bad-line); background: var(--bad-bg); padding: 8px 10px; border-radius: var(--radius-sm); font-size: 12px; }
+.pn-fields { flex: 1; min-height: 0; display: flex; flex-direction: column; gap: 16px; overflow: auto; }
+.pn-row { display: grid; grid-template-columns: minmax(0, 1.4fr) minmax(180px, .8fr); gap: 14px; }
+.pn-field { display: flex; flex-direction: column; gap: 6px; border: 0; padding: 0; margin: 0; }
+.pn-field textarea { min-height: 88px; }
+.pn-field > span, .pn-field > legend { font-size: 11px; color: var(--muted); letter-spacing: .04em; padding: 0; }
+.pn-language { max-width: 320px; }
+.pn-hint { color: var(--faint); font-size: 11px; line-height: 1.5; }
+.pn-notice { color: var(--warn-fg); font-size: 11px; line-height: 1.5; border-left: 2px solid var(--warn-line); padding-left: 8px; }
+.pn-objectives { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+.pn-objective { position: relative; display: flex; flex-direction: column; gap: 6px; min-height: 96px; }
+.pn-objective input { position: absolute; opacity: 0; pointer-events: none; }
+.pn-objective strong { font-size: 13px; }
+.pn-objective small { color: var(--muted); font-size: 11px; line-height: 1.5; }
+.pn-actions { display: flex; justify-content: flex-end; gap: 8px; margin-top: auto; padding-top: 8px; }
+
+.ps { position: relative; margin-bottom: 24px; }
+.ps .project-switch { margin-bottom: 0; }
+.ps-menu { position: absolute; z-index: 20; left: 0; right: 0; top: calc(100% + 6px); background: var(--raised); border: 1px solid var(--line-strong); border-radius: var(--radius-md); padding: 6px; box-shadow: var(--elev-float); display: flex; flex-direction: column; gap: 2px; }
+.ps-item { display: flex; flex-direction: column; align-items: flex-start; gap: 3px; width: 100%; text-align: left; background: transparent; border: 0; padding: 8px 10px; border-radius: var(--radius-sm); }
+.ps-item:hover { background: var(--surface); }
+.ps-item.active { background: var(--active-bg); }
+.ps-item strong { font-size: 12px; }
+.ps-item small { color: var(--muted); font-size: 10px; }
+.ps-new { border-top: 1px solid var(--line); border-radius: 0 0 var(--radius-sm) var(--radius-sm); margin-top: 4px; padding-top: 10px; color: var(--ok-fg); font-size: 12px; }
+.ps-badge { font-size: 9px; letter-spacing: .05em; text-transform: uppercase; color: var(--warn-fg); border: 1px solid var(--warn-line); border-radius: 4px; padding: 1px 5px; margin-left: 6px; }
+
+.archived-banner { display: flex; align-items: center; justify-content: space-between; gap: 12px; margin: 18px 30px 0; padding: 10px 13px; border-left: 2px solid var(--preconscious); background: var(--warn-bg); color: var(--muted); font-size: 11px; line-height: 1.5; }
+.shell-error { min-height: 100%; height: 100%; display: grid; place-content: center; gap: 10px; text-align: center; padding: 24px; }
+.shell-error h2 { margin: 0; font-size: 18px; }
+.shell-error p { margin: 0; color: var(--muted); font-size: 13px; max-width: 460px; }
+.shell-loading { min-height: 100%; height: 100%; display: grid; place-content: center; color: var(--muted); font-size: 13px; }
+
+@media (max-width: 900px) { .pn-row { grid-template-columns: 1fr; } }
+@media (max-width: 640px) { .pn-objectives { grid-template-columns: 1fr; } .pn-first { padding: 16px; } }
+
+/* Theme switch */
+.theme-toggle { display: inline-flex; border: 1px solid var(--line); border-radius: var(--radius-md); overflow: hidden; }
+.theme-toggle button { border: 0; border-radius: 0; background: transparent; color: var(--muted); font-size: 11px; padding: 6px 9px; display: inline-flex; gap: 5px; align-items: center; }
+.theme-toggle button + button { border-left: 1px solid var(--line); }
+.theme-toggle button.active { background: var(--active-bg); color: var(--ink); }

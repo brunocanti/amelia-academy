@@ -1,0 +1,18 @@
+{
+  "schema_version": "1.0",
+  "dataset_id": "019a0000-0000-7000-8000-000000000020",
+  "project_id": "019a0000-0000-7000-8000-000000000003",
+  "created_at": "2026-10-24T19:10:00-05:00",
+  "entries": [
+    {
+      "sample_id": "019a0000-0000-7000-8000-000000000010",
+      "sample_revision": 1,
+      "sample_sha256": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+      "split": "train",
+      "scenario_group": "saudacao",
+      "source_group": "manual-1"
+    }
+  ],
+  "statistics": {"total_samples": 1, "by_split": {"train": 1, "validation": 0, "test": 0}},
+  "canonical_sha256": "bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb"
+}

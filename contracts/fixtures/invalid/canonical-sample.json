@@ -1,0 +1,10 @@
+{
+  "schema_version": "1.0",
+  "sample_id": "019a0000-0000-7000-8000-000000000010",
+  "project_id": "019a0000-0000-7000-8000-000000000003",
+  "revision": 1,
+  "language": "not-a-bcp47",
+  "scenario_id": "x",
+  "messages": [{"role": "model", "content": [{"type": "tokens", "text": ""}]}],
+  "provenance": {"kind": "automatic", "evidence_refs": []}
+}

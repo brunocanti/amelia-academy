@@ -1,0 +1,11 @@
+{
+  "schema_version": "1.0",
+  "release_id": "019a0000-0000-7000-8000-000000000040",
+  "project_id": "019a0000-0000-7000-8000-000000000003",
+  "model_spec": {},
+  "adapters": [{"role": "persona", "artifact_sha256": "missing"}],
+  "charter": {},
+  "policies": {},
+  "retrieval": {"embedding_model": "", "min_score": 2},
+  "evaluations": [{"suite_version_id": "bad", "run_id": "bad", "result": "fail"}]
+}

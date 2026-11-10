@@ -1,0 +1,1 @@
+Ask the way a person talks, opening with what is wanted ("Which encoder settings...", "How many...", "Who...", "When..."), each opening different. Never use the words "specific", "exact", "precise" or "particular".

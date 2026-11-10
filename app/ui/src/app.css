@@ -1,0 +1,138 @@
+/* Design tokens. Brand colours come from docs/brand/visual-system.md (inherited from Amelia 3).
+   Components use only these tokens, never raw hex, so a theme is just a second set of values.
+   The theme is chosen by data-theme on <html> ("dark" or "light"); see src/theme.jsx. */
+:root,
+:root[data-theme="dark"] {
+  color-scheme: dark;
+
+  --canvas: #0d0d0d;
+  --surface: #171717;
+  --raised: #1f1f1f;
+  --sunken: #121212;
+  --sidebar: #101010;
+  --active-bg: #1d2824;
+
+  --ink: #f9f9f9;
+  --ink-soft: #d4d4d4;
+  --muted: #9b9b9b;
+  --faint: #676767;
+  --line: #262626;
+  --line-strong: #3a3a3a;
+
+  /* Academy brand: five primaries. Neutrals are ground, not brand. */
+  --brand-ink: var(--ink);
+  --brand-mark: #10b981;
+  --brand-mark-ink: #04140e;
+  --brand-origin: #06b6d4;
+  --brand-review: #f59e0b;
+  --brand-refuse: #ef4444;
+
+  --conscious: var(--brand-mark);
+  --preconscious: var(--brand-review);
+  --unconscious: var(--brand-refuse);
+  --memory: var(--brand-origin);
+
+  --ok-bg: #15251f;   --ok-line: #2d513f;   --ok-fg: #72c8a4;
+  --warn-bg: #2b2213; --warn-line: #594321; --warn-fg: #efbd5b;
+  --bad-bg: #1f1313;  --bad-line: #5b2222;  --bad-fg: #f87171;
+  --info-bg: #13242a; --info-line: #345564; --info-fg: #70c5d8;
+  --violet-bg: #1c1730; --violet-line: #4a3a6b; --violet-fg: #c4a6f5;
+
+  --shadow: 0 12px 30px rgba(0, 0, 0, .5);
+  --glow-ok: rgba(16, 185, 129, .35);
+
+  --radius-sm: 6px;
+  --radius-md: 10px;
+  --radius-lg: 14px;
+  --radius-pill: 99px;
+
+  --elev-panel:
+    inset 0 1px 0 rgba(255, 255, 255, .045),
+    0 1px 2px rgba(0, 0, 0, .28),
+    0 10px 28px rgba(0, 0, 0, .38);
+  --elev-card:
+    inset 0 1px 0 rgba(255, 255, 255, .04),
+    0 4px 14px rgba(0, 0, 0, .24);
+  --elev-float:
+    inset 0 1px 0 rgba(255, 255, 255, .06),
+    0 14px 36px rgba(0, 0, 0, .5);
+}
+
+:root[data-theme="light"] {
+  color-scheme: light;
+
+  --canvas: #f5f4f0;
+  --surface: #ffffff;
+  --raised: #efeee9;
+  --sunken: #faf9f6;
+  --sidebar: #ecebe6;
+  --active-bg: #dcece4;
+
+  --ink: #1a1a18;
+  --ink-soft: #3a3a36;
+  --muted: #5f5f58;
+  --faint: #8d8c84;
+  --line: #dddbd3;
+  --line-strong: #c3c0b5;
+
+  --brand-ink: var(--ink);
+  --brand-mark: #0d9668;
+  --brand-mark-ink: #f4fffa;
+  --brand-origin: #0891b2;
+  --brand-review: #c27803;
+  --brand-refuse: #d92d20;
+
+  --conscious: var(--brand-mark);
+  --preconscious: var(--brand-review);
+  --unconscious: var(--brand-refuse);
+  --memory: var(--brand-origin);
+
+  --ok-bg: #e3f3ea;   --ok-line: #a5d3bc;   --ok-fg: #17714f;
+  --warn-bg: #fbf0d6; --warn-line: #e2c47c; --warn-fg: #855400;
+  --bad-bg: #fbe8e6;  --bad-line: #e6aaa4;  --bad-fg: #b42318;
+  --info-bg: #def1f6; --info-line: #9ccbd9; --info-fg: #0c6479;
+  --violet-bg: #efe9fb; --violet-line: #c8b6ee; --violet-fg: #6a3fb3;
+
+  --shadow: 0 12px 30px rgba(60, 50, 20, .14);
+  --glow-ok: rgba(13, 150, 104, .25);
+
+  --elev-panel:
+    inset 0 1px 0 rgba(255, 255, 255, .85),
+    0 8px 28px rgb(0 0 0 / 10%);
+  --elev-card:
+    inset 0 1px 0 rgba(255, 255, 255, .9),
+    0 4px 14px rgb(0 0 0 / 8%);
+  --elev-float:
+    inset 0 1px 0 #fff,
+    0 14px 36px rgb(0 0 0 / 12%);
+}
+
+* { box-sizing: border-box; }
+
+html, body, #app {
+  height: 100%;
+}
+body { overflow: hidden; }
+
+body {
+  margin: 0;
+  background: var(--canvas);
+  color: var(--ink);
+  font-family: 'Archivo', system-ui, sans-serif;
+  font-size: 14px;
+  transition: background-color .2s, color .2s;
+}
+
+input, select, textarea {
+  font: inherit;
+  color: var(--ink);
+  background: var(--sunken);
+  border: 1px solid var(--line);
+  border-radius: var(--radius-sm);
+  padding: 8px 10px;
+}
+button { font: inherit; cursor: pointer; }
+button:disabled { opacity: 0.4; cursor: default; }
+textarea { width: 100%; min-height: 56px; resize: vertical; }
+input, select { width: 100%; }
+:focus-visible { outline: 2px solid var(--brand-origin); outline-offset: 2px; }

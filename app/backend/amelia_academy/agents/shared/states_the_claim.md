@@ -1,0 +1,1 @@
+The question must state the false claim clearly, so the mistake shows in the question alone. Vary the form: ask directly, use a conditional, or ask for confirmation. Avoid repeating one template. Never use a neutral question that does not contain the mistake.

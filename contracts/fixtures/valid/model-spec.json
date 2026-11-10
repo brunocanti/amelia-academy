@@ -1,0 +1,21 @@
+{
+  "schema_version": "1.0",
+  "spec_id": "019a0000-0000-7000-8000-000000000030",
+  "project_id": "019a0000-0000-7000-8000-000000000003",
+  "base_model": {
+    "id": "example/model",
+    "revision": "abc123",
+    "sha256": "cccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc",
+    "license": "Apache-2.0"
+  },
+  "runtime": {"kind": "mlx", "version": "1.0.0", "quantization": null},
+  "tokenizer": {
+    "sha256": "dddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddd",
+    "chat_template_sha256": "eeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee",
+    "bos_token_id": 1,
+    "eos_token_id": 2,
+    "pad_token_id": null,
+    "thinking_enabled": false,
+    "loss_mask": "assistant_final_only"
+  }
+}

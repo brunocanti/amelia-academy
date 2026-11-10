@@ -1,0 +1,52 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://schemas.amelia.academy/v1/model-spec.schema.json",
+  "title": "ModelSpec",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["schema_version", "spec_id", "project_id", "base_model", "runtime", "tokenizer"],
+  "properties": {
+    "schema_version": {"const": "1.0"},
+    "spec_id": {"$ref": "#/$defs/id"},
+    "project_id": {"$ref": "#/$defs/id"},
+    "base_model": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["id", "revision", "sha256", "license"],
+      "properties": {
+        "id": {"type": "string", "minLength": 1},
+        "revision": {"type": "string", "minLength": 1},
+        "sha256": {"$ref": "#/$defs/sha256"},
+        "license": {"type": "string", "minLength": 1}
+      }
+    },
+    "runtime": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["kind", "version"],
+      "properties": {
+        "kind": {"enum": ["mlx", "llama.cpp", "ollama"]},
+        "version": {"type": "string", "minLength": 1},
+        "quantization": {"type": ["string", "null"]}
+      }
+    },
+    "tokenizer": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["sha256", "chat_template_sha256", "bos_token_id", "eos_token_id", "loss_mask"],
+      "properties": {
+        "sha256": {"$ref": "#/$defs/sha256"},
+        "chat_template_sha256": {"$ref": "#/$defs/sha256"},
+        "bos_token_id": {"type": ["integer", "null"], "minimum": 0},
+        "eos_token_id": {"type": "integer", "minimum": 0},
+        "pad_token_id": {"type": ["integer", "null"], "minimum": 0},
+        "thinking_enabled": {"type": "boolean"},
+        "loss_mask": {"const": "assistant_final_only"}
+      }
+    }
+  },
+  "$defs": {
+    "id": {"type": "string", "pattern": "^(?:[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[89abAB][0-9a-fA-F]{3}-[0-9a-fA-F]{12}|[0-9A-HJKMNP-TV-Z]{26})$"},
+    "sha256": {"type": "string", "pattern": "^[0-9a-f]{64}$"}
+  }
+}

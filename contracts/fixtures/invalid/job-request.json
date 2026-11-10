@@ -1,0 +1,11 @@
+{
+  "schema_version": "2.0",
+  "request_id": "not-an-id",
+  "job_id": "019a0000-0000-7000-8000-000000000002",
+  "project_id": "019a0000-0000-7000-8000-000000000003",
+  "attempt": 0,
+  "task": "shell",
+  "input_manifest": "../../etc/passwd",
+  "output_dir": "/tmp",
+  "config": {}
+}

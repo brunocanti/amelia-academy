@@ -1,0 +1,14 @@
+{
+  "schema_version": "1.0",
+  "sample_id": "019a0000-0000-7000-8000-000000000010",
+  "project_id": "019a0000-0000-7000-8000-000000000003",
+  "revision": 1,
+  "language": "en-US",
+  "audience": "general public",
+  "scenario_id": "greeting-01",
+  "messages": [
+    {"role": "user", "content": [{"type": "text", "text": "Hello."}]},
+    {"role": "assistant", "content": [{"type": "text", "text": "Hello. How can I help?"}]}
+  ],
+  "provenance": {"kind": "manual", "evidence_refs": []}
+}

@@ -1,0 +1,60 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "type": "object",
+  "additionalProperties": false,
+  "$id": "https://schemas.amelia.academy/v1/editorial-rationale.schema.json",
+  "title": "EditorialRationale",
+  "properties": {
+    "schema_version": {
+      "const": "1.0"
+    },
+    "sample_id": {
+      "type": "string"
+    },
+    "sample_revision": {
+      "type": "integer",
+      "minimum": 1
+    },
+    "input_hash": {
+      "type": "string",
+      "pattern": "^[a-f0-9]{64}$"
+    },
+    "rationale_id": {
+      "type": "string"
+    },
+    "question": {
+      "type": "string",
+      "minLength": 1
+    },
+    "rationale": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 4000
+    },
+    "final": {
+      "type": "string",
+      "minLength": 1
+    },
+    "evidence_refs": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "review_basis": {
+      "type": "object"
+    }
+  },
+  "required": [
+    "schema_version",
+    "sample_id",
+    "sample_revision",
+    "input_hash",
+    "rationale_id",
+    "question",
+    "rationale",
+    "final",
+    "evidence_refs",
+    "review_basis"
+  ]
+}

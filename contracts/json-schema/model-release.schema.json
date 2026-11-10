@@ -1,0 +1,68 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://schemas.amelia.academy/v1/model-release.schema.json",
+  "title": "ModelRelease",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["schema_version", "release_id", "project_id", "model_spec", "adapters", "charter", "policies", "retrieval", "evaluations"],
+  "properties": {
+    "schema_version": {"const": "1.0"},
+    "release_id": {"$ref": "#/$defs/id"},
+    "project_id": {"$ref": "#/$defs/id"},
+    "model_spec": {"$ref": "https://schemas.amelia.academy/v1/model-spec.schema.json"},
+    "adapters": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["role", "artifact_sha256"],
+        "properties": {
+          "role": {"type": "string", "minLength": 1},
+          "artifact_sha256": {"$ref": "#/$defs/sha256"}
+        }
+      }
+    },
+    "charter": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["version_id", "sha256"],
+      "properties": {
+        "version_id": {"$ref": "#/$defs/id"},
+        "sha256": {"$ref": "#/$defs/sha256"}
+      }
+    },
+    "policies": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["bundle_sha256"],
+      "properties": {"bundle_sha256": {"$ref": "#/$defs/sha256"}}
+    },
+    "retrieval": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["embedding_model", "min_score"],
+      "properties": {
+        "embedding_model": {"type": "string", "minLength": 1},
+        "min_score": {"type": "number", "minimum": 0, "maximum": 1}
+      }
+    },
+    "evaluations": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["suite_version_id", "run_id", "result"],
+        "properties": {
+          "suite_version_id": {"$ref": "#/$defs/id"},
+          "run_id": {"$ref": "#/$defs/id"},
+          "result": {"const": "pass"}
+        }
+      }
+    }
+  },
+  "$defs": {
+    "id": {"type": "string", "pattern": "^(?:[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[89abAB][0-9a-fA-F]{3}-[0-9a-fA-F]{12}|[0-9A-HJKMNP-TV-Z]{26})$"},
+    "sha256": {"type": "string", "pattern": "^[0-9a-f]{64}$"}
+  }
+}

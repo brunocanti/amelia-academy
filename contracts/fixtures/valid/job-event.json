@@ -1,0 +1,14 @@
+{
+  "schema_version": "1.0",
+  "request_id": "019a0000-0000-7000-8000-000000000001",
+  "job_id": "019a0000-0000-7000-8000-000000000002",
+  "project_id": "019a0000-0000-7000-8000-000000000003",
+  "attempt": 1,
+  "seq": 17,
+  "type": "progress",
+  "occurred_at": "2026-10-24T19:10:00-05:00",
+  "phase": "train",
+  "current": 320,
+  "total": 1000,
+  "metrics": {"train_loss": 1.82}
+}

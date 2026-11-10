@@ -1,0 +1,54 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://schemas.amelia.academy/v1/canonical-sample.schema.json",
+  "title": "CanonicalSample",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["schema_version", "sample_id", "project_id", "revision", "language", "scenario_id", "messages", "provenance"],
+  "properties": {
+    "schema_version": {"const": "1.0"},
+    "sample_id": {"$ref": "#/$defs/id"},
+    "project_id": {"$ref": "#/$defs/id"},
+    "revision": {"type": "integer", "minimum": 1},
+    "language": {"type": "string", "pattern": "^[a-z]{2}(?:-[A-Z]{2})?$"},
+    "audience": {"type": "string", "minLength": 1},
+    "scenario_id": {"type": "string", "minLength": 1},
+    "behavior_version_id": {"$ref": "#/$defs/id"},
+    "messages": {
+      "type": "array",
+      "minItems": 2,
+      "items": {"$ref": "#/$defs/message"}
+    },
+    "provenance": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["kind", "evidence_refs"],
+      "properties": {
+        "kind": {"enum": ["manual", "source", "training_candidate"]},
+        "evidence_refs": {"type": "array", "items": {"type": "string", "minLength": 1}, "uniqueItems": true},
+        "training_candidate_id": {"$ref": "#/$defs/id"}
+      }
+    }
+  },
+  "$defs": {
+    "id": {"type": "string", "pattern": "^(?:[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[89abAB][0-9a-fA-F]{3}-[0-9a-fA-F]{12}|[0-9A-HJKMNP-TV-Z]{26})$"},
+    "message": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["role", "content"],
+      "properties": {
+        "role": {"enum": ["system", "user", "assistant", "tool"]},
+        "content": {"type": "array", "minItems": 1, "items": {"$ref": "#/$defs/part"}}
+      }
+    },
+    "part": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["type", "text"],
+      "properties": {
+        "type": {"const": "text"},
+        "text": {"type": "string", "minLength": 1}
+      }
+    }
+  }
+}

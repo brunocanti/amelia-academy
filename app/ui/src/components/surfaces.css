@@ -1,0 +1,172 @@
+/* Two planes sit on the canvas: Panel (work surface) and Card (raised object).
+   Slightly round, with real depth — this is the standard for every screen. */
+
+.aa-panel {
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--elev-panel);
+  padding: 22px 24px;
+  min-width: 0;
+  min-height: 0;
+}
+.aa-panel-flush { padding: 0; }
+.aa-panel-fill { flex: 1; display: flex; flex-direction: column; }
+
+.aa-card {
+  background: var(--raised);
+  border: 1px solid var(--line);
+  border-radius: var(--radius-md);
+  box-shadow: var(--elev-card);
+  padding: 14px 16px;
+  min-width: 0;
+}
+.aa-card.is-interactive {
+  cursor: pointer;
+  transition: border-color .18s var(--ease-standard, cubic-bezier(.2, 0, 0, 1)),
+              transform .18s var(--ease-standard, cubic-bezier(.2, 0, 0, 1)),
+              box-shadow .18s var(--ease-standard, cubic-bezier(.2, 0, 0, 1)),
+              background .18s;
+}
+.aa-card.is-interactive:hover {
+  border-color: var(--line-strong);
+  transform: translateY(-1px);
+  box-shadow: var(--elev-panel);
+}
+.aa-card.is-selected {
+  border-color: var(--brand-mark);
+  background: var(--ok-bg);
+  box-shadow: var(--elev-card), 0 0 0 1px var(--ok-line);
+}
+
+/* Buttons — same radius and depth as cards. Primary is the Academy mark. */
+button.aa-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  width: auto;
+  align-self: flex-start;
+  height: 40px;
+  min-height: 40px;
+  padding: 0 14px;
+  border-radius: var(--radius-md);
+  border: 1px solid var(--line-strong);
+  background: var(--raised);
+  color: var(--ink);
+  font-size: 13px;
+  font-weight: 650;
+  letter-spacing: -.01em;
+  white-space: nowrap;
+  box-shadow: var(--elev-card);
+  transition: background .16s, border-color .16s, transform .16s, box-shadow .16s, opacity .16s;
+}
+button.aa-btn:hover:not(:disabled) {
+  transform: translateY(-1px);
+  border-color: var(--brand-ink);
+  box-shadow: var(--elev-panel);
+}
+button.aa-btn-primary {
+  background: var(--brand-mark);
+  color: var(--brand-mark-ink);
+  border-color: transparent;
+}
+button.aa-btn-primary:hover:not(:disabled) { filter: brightness(1.06); border-color: transparent; }
+button.aa-btn-secondary { background: var(--raised); color: var(--ink); }
+button.aa-btn-ghost {
+  background: transparent;
+  box-shadow: none;
+  border-color: var(--line);
+  color: var(--ink-soft);
+}
+button.aa-btn-ghost:hover:not(:disabled) { background: var(--raised); color: var(--ink); }
+button.aa-btn-danger {
+  background: var(--bad-bg);
+  color: var(--bad-fg);
+  border-color: var(--brand-refuse);
+}
+button.aa-btn-danger:hover:not(:disabled) { border-color: var(--brand-refuse); }
+button.aa-btn-approve {
+  background: var(--brand-mark);
+  color: var(--brand-mark-ink);
+  border-color: transparent;
+}
+
+.primary, .sp-primary, .ws-primary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  min-height: 40px;
+  padding: 0 14px;
+  border-radius: var(--radius-md);
+  border: 1px solid transparent;
+  background: var(--brand-mark);
+  color: var(--brand-mark-ink);
+  font-size: 13px;
+  font-weight: 650;
+  box-shadow: var(--elev-card);
+}
+.primary:hover:not(:disabled), .sp-primary:hover:not(:disabled), .ws-primary:hover:not(:disabled) {
+  filter: brightness(1.06);
+}
+
+.ws-actions, .pn-actions, .sp-actions, .sp-extract, .sp-docs-actions, .sp-section-head, .sp-ingestion-head {
+  align-items: center;
+}
+.ws-actions button, .pn-actions button, .sp-actions button {
+  height: 40px;
+  min-height: 40px;
+  padding: 0 14px;
+  border-radius: var(--radius-md);
+  font-size: 13px;
+  font-weight: 650;
+  box-shadow: var(--elev-card);
+}
+.ws-actions button.aa-btn-ghost, .sp-actions button.aa-btn-ghost, .pn-actions button.aa-btn-ghost {
+  box-shadow: none;
+}
+
+.aa-card.aa-sample {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  padding: 16px;
+  border-left: 3px solid var(--brand-review);
+}
+.aa-card.aa-sample-positive { border-left-color: var(--brand-mark); }
+.aa-card.aa-sample-edge_cases { border-left-color: var(--brand-review); }
+.aa-card.aa-sample-negative { border-left-color: var(--brand-refuse); }
+.aa-card.aa-sample-approved, .aa-card.aa-sample-approved_sample {
+  border-left-color: var(--brand-mark);
+  box-shadow: var(--elev-card), inset 3px 0 0 var(--brand-mark);
+}
+.aa-card.aa-sample-rejected {
+  opacity: .62;
+  border-left-color: var(--brand-refuse);
+}
+.aa-sample .ws-turn-amelia { border-left-color: var(--brand-mark); }
+.aa-sample .ws-badge { border-radius: var(--radius-pill); }
+.aa-sample .ws-var-positive { color: var(--ok-fg); border-color: var(--ok-line); background: var(--ok-bg); }
+.aa-sample .ws-var-edge_cases { color: var(--warn-fg); border-color: var(--warn-line); background: var(--warn-bg); }
+.aa-sample .ws-var-negative { color: var(--bad-fg); border-color: var(--bad-line); background: var(--bad-bg); }
+
+@media (prefers-reduced-motion: reduce) {
+  button.aa-btn, button.aa-btn:hover:not(:disabled), .aa-card.is-interactive, .aa-card.is-interactive:hover {
+    transition: none; transform: none;
+  }
+}
+
+/* Existing surfaces inherit the same planes so the whole product matches. */
+.panel, .sp-panel, .stage-empty-card, .next-action-card, .project-language, .ws-col {
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--elev-panel);
+}
+.ws-card, .sp-theme, .workflow-node, .dataset-row, .sp-page-group, .sp-source.active, .pn-objective {
+  background: var(--raised);
+  border: 1px solid var(--line);
+  border-radius: var(--radius-md);
+  box-shadow: var(--elev-card);
+}
